@@ -1,0 +1,32 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+libraries:                                                                      
+- name: jinja2                                                                  
+  version: latest
+
+handlers:
+- url: /css
+  static_dir: bootstrap/dist/css
+  application_readable: true
+- url: /bootstrap
+  static_dir: bootstrap
+  application_readable: true
+- url: /static
+  static_dir: static
+  application_readable: true
+- url: /home.html
+  static_dir: templates
+  application_readable: true
+- url: /listings.html
+  static_dir: templates
+  application_readable: true
+- url: /listing.html
+  static_dir: templates
+  application_readable: true
+- url: /
+  login: required
+  script: realtor-listing-demo.app
+- url: /.*
+  script: realtor-listing-demo.app
